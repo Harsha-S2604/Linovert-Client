@@ -1,0 +1,64 @@
+@font-face {
+    font-family: "Quicksand";
+    src: local("Quicksand-Regular")
+    ,url("./fonts/Quicksand-Regular.ttf") format("truetype");
+  }
+  
+div {
+    font-family: Quicksand;
+}
+
+.link-no-style {
+    text-decoration: none !important;
+}
+
+.link-color {
+    color: black;
+}
+
+.site-color {
+    color: #32c896;
+}
+
+.link-color:hover {
+    color: #32c896;
+}
+
+.res-header {
+    text-decoration: none;
+    font-size: 25px;
+}
+
+.res-link {
+    font-size: 18px;
+}
+
+.res-image {
+    height: 35px;
+}
+
+.align-center {
+    vertical-align: middle;
+}
+
+.blog-padding {
+    padding-top: 100px;
+}
+
+@media screen and (max-width: 220px) {
+    .res-header {
+        font-size: 1px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .res-header {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 220px) {
+    .res-image {
+        height: 30px;
+    }
+}
