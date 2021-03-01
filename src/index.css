@@ -62,3 +62,12 @@ div {
         height: 30px;
     }
 }
+
+button.no-link {
+    background: none;
+    border: none;
+}
+
+.edit-color {
+    color: gray;
+}

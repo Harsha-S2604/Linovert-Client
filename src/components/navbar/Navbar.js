@@ -16,7 +16,7 @@ class Navbar extends Component {
                 <Router>
                     <div>
                         <div className="container">
-                            <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+                            <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow">
                                 <div className="navbar-nav mr-auto navbar-brand">
                                     <div className="d-flex align-item-center">
                                         <div>
@@ -45,7 +45,7 @@ class Navbar extends Component {
                                             </Link>
                                         </li>
                                         <li className="nav-item">
-                                            <Link to="/login" className="link-no-style nav-link">
+                                            <Link to="/linux-tutorials" className="link-no-style nav-link">
                                                 <div className="link-color res-link">
                                                     <i><DiLinux className="align-middle mr-1"/></i>
                                                     <span className="align-middle">Linux Tutorial</span>
