@@ -71,3 +71,7 @@ button.no-link {
 .edit-color {
     color: gray;
 }
+
+.home-padding {
+    padding-top: 100px;
+}

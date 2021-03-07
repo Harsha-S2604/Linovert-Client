@@ -1,12 +1,12 @@
 import {React, Component} from 'react';
 import {BrowserRouter as Router, Link, Switch, Route} from 'react-router-dom';
 import {IoIosCreate} from 'react-icons/io';
-import {HiUserAdd} from 'react-icons/hi';
-import {FaSignInAlt} from 'react-icons/fa';
 import {DiLinux} from 'react-icons/di';
+import {AiFillInfoCircle} from 'react-icons/ai'
 
 import logo from '../../assets/logo-lino.png'
 import AddBlog from '../blogs/AddBlog';
+import Home from '../home/Home'
 
 
 class Navbar extends Component {
@@ -53,18 +53,10 @@ class Navbar extends Component {
                                             </Link>
                                         </li>
                                         <li className="nav-item">
-                                            <Link to="/signup" className="link-no-style nav-link">
+                                            <Link to="/about" className="link-no-style nav-link">
                                                 <div className="link-color res-link">
-                                                    <i><HiUserAdd className="align-middle mr-1"/></i>
-                                                    <span className="align-middle">Sign Up</span>
-                                                </div>
-                                            </Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link to="/login" className="link-no-style nav-link">
-                                                <div className="link-color res-link">
-                                                    <i><FaSignInAlt className="align-middle mr-1"/></i>
-                                                    <span className="align-middle">Login</span>
+                                                    <i><AiFillInfoCircle className="align-middle mr-1"/></i>
+                                                    <span className="align-middle">about</span>
                                                 </div>
                                             </Link>
                                         </li>
@@ -72,9 +64,8 @@ class Navbar extends Component {
                                 </div>
                             </nav>
                             <Switch>
-                                <Route path="/create-blog">
-                                    <AddBlog />
-                                </Route>
+                                <Route exact path="/" component={Home} />
+                                <Route exact path="/create-blog" component={AddBlog} />
                             </Switch>
                         </div>
                     </div>
