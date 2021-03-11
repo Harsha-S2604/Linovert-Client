@@ -31,25 +31,40 @@ class AddBlog extends Component {
             codes: [],
             onBlurCodes: [],
             onBlurContents: [],
+            successMessage: "",
+            errorMessage: "",
         }
     }
 
     createPost = (event) => {
         event.preventDefault()
+        const monthNames = ["January", "February", "March", "April", "May", "June",
+                            "July", "August", "September", "October", "November", "December"];
         var post = new Post()
         post.title = this.state.title
+        post.description = this.state.description
         const slicArr = this.state.contents.slice();
-        this.state.contents.map((content, index) => {
-            const value = JSON.stringify(convert(draftToHtml(convertToRaw(content.getCurrentContent()))))
+        this.state.contents.forEach((content, index) => {
+            const value = JSON.stringify(convertToRaw(content.getCurrentContent()))
             slicArr[index] = value
         })
         post.contents = slicArr
         post.codes = this.state.codes
-        console.log(post)
+        var date = new Date();
+        var createdOn = date.getDate()+" "+monthNames[date.getMonth()]+", "+date.getFullYear()  
+        post.createdOn = createdOn
         axios.post("http://localhost:8080/create-post", post)
         .then(res => {
-            console.log(res)
+            this.setState({
+                successMessage: res.data,
+            })
         })
+        .catch( error => {
+            this.setState({
+                errorMessage: error
+            })
+            }
+        )
     }
 
     componentDidMount() {
@@ -375,11 +390,11 @@ class AddBlog extends Component {
                                                 </div>
                                                 <hr/>
                                                 <div>
-                                                <pre className="language-c">
-                                                                <code>
-                                                                    {this.state.codes[i]}
-                                                                </code>
-                                                </pre>
+                                                    <pre className="language-c">
+                                                        <code>
+                                                            {this.state.codes[i]}
+                                                        </code>
+                                                    </pre>
                                                 </div>
                                             </div>
                                             
@@ -391,7 +406,11 @@ class AddBlog extends Component {
                         {(this.state.contents.length > 0) ? <div>
                             <button className="btn btn-dark" onClick={this.createPost}>Submit</button>
                         </div>:null}
-                    </form>
+                    </form><br/>
+                    {(this.state.successMessage) ? 
+                    <div>
+                        <h4 className="text-success">Blog Successfully uploaded</h4>
+                    </div> : null}
                 </div>
             </div>
         )

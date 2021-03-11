@@ -6,7 +6,9 @@ import {AiFillInfoCircle} from 'react-icons/ai'
 
 import logo from '../../assets/logo-lino.png'
 import AddBlog from '../blogs/AddBlog';
-import Home from '../home/Home'
+import Home from '../home/Home';
+import ViewBlog from '../blogs/ViewBlog';
+import LinuxTutorial from '../tutorial/LinuxTutorial'
 
 
 class Navbar extends Component {
@@ -66,6 +68,9 @@ class Navbar extends Component {
                             <Switch>
                                 <Route exact path="/" component={Home} />
                                 <Route exact path="/create-blog" component={AddBlog} />
+                                <Route exact path="/view-post/:title" render={(props) => <ViewBlog {...props}/>} />
+                                <Route exact path="/linux-tutorials/:title" render={(props) => <ViewBlog {...props}/>} />
+                                <Route exact path="/linux-tutorials" component={LinuxTutorial} />
                             </Switch>
                         </div>
                     </div>
